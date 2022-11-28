@@ -1,15 +1,20 @@
+// The Profile component gets current user from storage using StorageService and shows
+// information like username, token, email, roles, w/e we want to add
+
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
 
-  constructor() { }
+export class ProfileComponent implements OnInit {
+  currentUser: any;
+  constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.storageService.getUser();
   }
-
 }
