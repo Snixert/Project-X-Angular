@@ -1,0 +1,14 @@
+
+#homepage {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: url("/assets/Background.jpg");
+    background-size: cover;
+    position: absolute;
+
+}
+.navbar > a {
+    font-family: 'warcraft', sans-serif;
+    color: white;
+}
