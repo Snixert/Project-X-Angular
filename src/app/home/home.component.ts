@@ -2,6 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { BackgroundService } from '../_services/background.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,13 @@ import { UserService } from '../_services/user.service';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private backgroundService: BackgroundService) { }
+
+  homeBgImage = '/assets/wowLoginScreen.png'
 
   ngOnInit(): void {
+    this.backgroundService.bgPath.next(this.homeBgImage);
+
     this.userService.getPublicContent().subscribe({
       next: data => {
         this.content = data;

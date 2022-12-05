@@ -3,6 +3,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { BackgroundService } from '../_services/background.service';
 
 @Component({
   selector: 'app-register',
@@ -19,14 +20,17 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  registerBgImage = '/assets/diablo4mage.mp4';
 
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService, private backgroundService: BackgroundService) { }
 
   ngOnInit(): void {
+    this.backgroundService.bgPath.next(this.registerBgImage);
   }
 
   onSubmit(): void {
-    const {username, email, password} = this.form;
+    const { username, email, password } = this.form;
 
     this.authService.register(username, email, password).subscribe({
       next: data => {

@@ -3,6 +3,8 @@
 import { Component } from '@angular/core';
 import { StorageService } from './_services/storage.service';
 import { AuthService } from './_services/auth.service';
+import { BackgroundService } from './_services/background.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +13,29 @@ import { AuthService } from './_services/auth.service';
 })
 
 export class AppComponent {
+
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
   title = 'project-x';
+  subBg: Subscription;
+  style = {
+    'background-image': '',
+    height: '100vh',
+    width: '100vw',
 
-  constructor(private storageService: StorageService, private authService: AuthService) { }
+  };
+
+  constructor(private storageService: StorageService, private authService: AuthService, private backgroundService: BackgroundService) {
+    this.subBg = Subscription.EMPTY;
+  }
 
   ngOnInit(): void {
+    this.subBg = this.backgroundService.bgPath.subscribe((bgPath) => {
+      this.style['background-image'] = 'url(' + bgPath + ')';
+    });
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     // check if user is logged in, if true then get users roles and set value for showAdminBoard and showModeratorBoard flag. This controls how the template navbar displays items

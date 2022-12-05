@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service';
+import { BackgroundService } from '../_services/background.service';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,13 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  loginBgImage = '/assets/wowLoginScreen';
 
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService, private storageService: StorageService, private backgroundService: BackgroundService) { }
 
   ngOnInit(): void {
+    this.backgroundService.bgPath.next(this.loginBgImage);
+
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;

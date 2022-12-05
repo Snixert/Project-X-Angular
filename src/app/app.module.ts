@@ -13,6 +13,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { HttpInterceptorProviders } from './_helpers/http.interceptor';
+import { BackgroundService } from './_services/background.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { HttpInterceptorProviders } from './_helpers/http.interceptor';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpInterceptorProviders],
+  providers: [HttpInterceptorProviders, BackgroundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
