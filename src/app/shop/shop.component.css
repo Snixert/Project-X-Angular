@@ -1,60 +1,83 @@
-.shopprofile{
-    background-color: yellow;
+.playerProfile{
+    /* background-color: yellow; */
     width: 20%;
     margin-left: 0px;
     text-align: center;
     font-family:warcraft;
-    font-size: 30px;
+    font-size: 3.5vw;
 }
 
 .cashloc{
-    background-color: red;
-    width: 20%;
+    /* background-color: red; */
+    width: 14%;
     height:auto;
+    margin-left: 2%;
     text-align:center;
     z-index:1;
 }
 
 .cashamount{
-    background-color: green;
+    /* background-color: green; */
     width: 10%;
     height: auto;
-    margin-left: 9%;
-    margin-top: -4.5%;
+    margin-left: 7%;
+    margin-top: -4%;
     font-family:warcraft;
-    font-size: 40px;
+    font-size: 4vw;
     text-align:center;
     z-index:2;
 }
 
 .card{
-    background-color:grey;
-    height: 200px;
-    width: 20%;
-    margin-top: -20%;
-    margin-left: 25%;
+    /* https://www.colorzilla.com/gradient-editor/ */
+    background: -webkit-linear-gradient(top, #b5bdc8 0%,#828c95 36%,#28343b 100%);
+    height: 55%;
+    width: 35%;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 0%;
     border-color: black;
     border-style:groove;
-    border-radius:5px;
+    border-radius:15px;
+    display:inline-block;
+}
+
+.itemContainer{
+    /* background-color:magenta; */
+    height: 400px;
+    width: 80%;
+    margin-left: 20%;
+    margin-top: -30%;
+}
+
+.item{
+    height: 35%;
+    width: 35%;
+    border-radius: 30%;
+    margin-left: 50%;
+    margin-top: -37%;
+    border-style: groove;
+    border-color: black;
+    display: block;
 }
 
 .itemName{
     margin-left: 12px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.1vw;
 }
 
-.txt1{
+.price{
     position:absolute;
-    margin-top: 0.5%;
-    margin-left: 1%;
     font-family:warcraft;
-    font-size: 30px;
+    font-size: 3.5vw;
+    margin-top: 1%;
 }
 
 .buttonText{
     text-align: center;
     line-height: 30px;
+    font-size: 1vw;
     font-weight: bold;
 }
 
@@ -91,7 +114,17 @@
     width: 30%;
     border-radius:10px;
     margin-left:4%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+.cantbuybutton{
+    background-color: #c4fdbb;
+    color:grey;
+    height: 15%;
+    width: 30%;
+    border-radius:10px;
+    margin-left:4%;
+    margin-top: 5%;
 }
 
 .circle-link {
