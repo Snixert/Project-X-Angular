@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  loginBgImage = '/assets/wowLoginScreen';
+  loginBgImage = '/assets/wowLoginScreen.png';
 
   constructor(private authService: AuthService, private storageService: StorageService, private backgroundService: BackgroundService) { }
 

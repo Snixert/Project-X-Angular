@@ -1,45 +1,26 @@
 <!--Root app component view-->
 
-<body [ngStyle]="style" class="background">
-    <div id="app" style="@import url('https://fonts.cdnfonts.com/css/warcraft');">
-      <nav class="nav navbar-nav navbar-expand navbar-light">
-        <a href="#" class="navbar-brand">Project-X</a>
-        <ul class="nav navbar-nav mr-auto" routerLinkActive="active">
-          <li class="nav-item">
-            <a href="/home" class="nav-link" routerLink="home">Home</a>
-          </li>
-          <li class="nav-item" *ngIf="showAdminBoard">
-            <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-          </li>
-          <li class="nav-item" *ngIf="showModeratorBoard">
-            <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-          </li>
-          <li class="nav-item">
-            <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-          </li>
-        </ul>
+  <body [ngStyle]="style">
+    <header>
+      <div class="logo">
+        <a href="/home" routerLink="home">Project-X</a>
+      </div>
+      <nav>
+        <ul routerLinkActive="active">
+          <ul *ngIf="!isLoggedIn">
+            <li><a href="/login" routerLink="login">Login</a></li>
+            <button><a href="/register" routerLink="register">Sign Up</a></button>
+          </ul>
 
-        <ul class="nav navbar-nav ml-auto" *ngIf="!isLoggedIn">
-          <li class="nav-item">
-            <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a href="/login" class="nav-link" routerLink="login">Login</a>
-          </li>
-        </ul>
-
-        <ul class="nav navbar-nav ml-auto" *ngIf="isLoggedIn">
-          <li class="nav-item">
-            <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="logout()">Log out</a>
-          </li>
+          <ul *ngIf="isLoggedIn">
+            <li><a href="/profile" routerLink="profile">{{ username }}</a></li>
+            <li><a (click)="logout()">Log out</a></li>
+          </ul>
         </ul>
       </nav>
-    </div>
+    </header>
     <div class="contentView">
       <router-outlet></router-outlet>
     </div>
+  </body>
 
-</body>
