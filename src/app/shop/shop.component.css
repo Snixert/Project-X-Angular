@@ -5,6 +5,7 @@
     text-align: center;
     font-family:warcraft;
     font-size: 3.5vw;
+    cursor:default;
 }
 
 .cashloc{
@@ -26,6 +27,7 @@
     font-size: 4vw;
     text-align:center;
     z-index:2;
+    cursor:default;
 }
 
 .card{
@@ -40,6 +42,7 @@
     border-style:groove;
     border-radius:15px;
     display:inline-block;
+    cursor:default;
 }
 
 .itemContainer{
@@ -115,6 +118,7 @@
     border-radius:10px;
     margin-left:4%;
     margin-top: 5%;
+    cursor:pointer;
 }
 
 .cantbuybutton{
@@ -125,6 +129,7 @@
     border-radius:10px;
     margin-left:4%;
     margin-top: 5%;
+    cursor:default
 }
 
 .circle-link {
