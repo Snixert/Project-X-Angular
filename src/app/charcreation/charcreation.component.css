@@ -1,0 +1,32 @@
+.title{
+    /* background-color: magenta; */
+    text-align:center;
+    user-select:none;
+}
+
+.imageSize{
+    height: 90%;
+    width: 90%;
+    
+}
+
+.button{
+
+    width: 10%;
+    margin: auto;
+    background-color: #40fa25;
+    height: 15%;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top: 1.5%;
+}
+
+.button:active{
+    transform:scale(0.98);
+}
+
+.card{
+    /* background-color:red; */
+    display:inline-block;
+    width: 10%;
+}
