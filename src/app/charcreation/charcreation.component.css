@@ -10,6 +10,23 @@
     
 }
 
+.infoText{
+    margin-left: -86%;
+    font-weight: bold;
+}
+
+.divo{
+    /* background-color: magenta; */
+    width: 30%;
+    margin:auto;
+}
+
+.textbox{
+    height: 30px;
+    width: 90%;
+    margin-left: -5%;
+}
+
 .button{
 
     width: 10%;
