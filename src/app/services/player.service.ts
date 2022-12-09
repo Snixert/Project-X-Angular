@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 import { Item } from '../models/item';
 import { Player } from '../models/player';
+import { PlayerStat } from '../models/playerstat';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class PlayerService {
 
   getPlayerWeapon(id: number): Observable<Item>{
     return this.http.get<Item>(this.baseApiUrl + 'api/players/' + id + '/weapon');
+  }
+
+  getPlayerStats(id: number): Observable<PlayerStat[]>{
+    return this.http.get<PlayerStat[]>(this.baseApiUrl + 'api/players/' + id + '/stats');
   }
 }

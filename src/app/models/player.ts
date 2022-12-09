@@ -1,5 +1,6 @@
 import { Item } from "./item";
 import { ItemStat } from "./itemstat";
+import { PlayerStat } from "./playerstat";
 
 export class Player {
     id: number;
@@ -8,7 +9,7 @@ export class Player {
     weaponId: number;
     weapon: Item;
     playerStats: [
-        ItemStat
+        PlayerStat
     ];
     inventory: [
         Item
