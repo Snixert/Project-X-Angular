@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@an
 import { ItemService } from '../services/item.service';
 import { Item } from '../models/item';
 import { Observable } from 'rxjs';
+import { Player } from '../models/player';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-shop',
@@ -10,9 +12,10 @@ import { Observable } from 'rxjs';
   encapsulation: ViewEncapsulation.None
 })
 export class ShopComponent implements OnInit {
-  constructor(private itemService: ItemService){
+  constructor(private itemService: ItemService, private playerService: PlayerService){
   }
   items: Item[] = [];
+  playerTest: Player []= [];
 
       player = {
         name: 'Cowkilla23',
@@ -25,6 +28,12 @@ export class ShopComponent implements OnInit {
     .subscribe({
       next:(items =>{
         this.items = items;
+      })
+    })
+    this.playerService.getPlayer(1)
+    .subscribe({
+      next:(playerTest =>{
+        console.log(playerTest)
       })
     })
   }
