@@ -1,10 +1,10 @@
 import { Item } from "./item";
-import { ItemStat } from "./itemstat";
 import { PlayerStat } from "./playerstat";
 
 export class Player {
     id: number;
     name: string;
+    image: string;
     currency: number;
     weaponId: number;
     weapon: Item;
@@ -17,6 +17,7 @@ export class Player {
     constructor() {
         this.id = 0;
         this.name = '',
+            this.image = '',
             this.currency = 0,
             this.weaponId = 0,
             this.weapon = {
