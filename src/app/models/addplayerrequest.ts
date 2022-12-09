@@ -1,4 +1,5 @@
 export interface AddPlayerRequest{
     accountId: number,
-    name: string
+    name: string,
+    image: string
 }
