@@ -12,4 +12,9 @@ export class CharcreationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    const input = <HTMLInputElement>document.getElementById('textbox');
+    console.log(input.value);
+    input.value = "";
+  }
 }
