@@ -35,7 +35,7 @@ export class PlayerService {
     return this.http.put<UpdateStatsRequest[]>(this.baseApiUrl + 'api/players/' + id + '/stats', statsRequest);
   }
 
-  updatePlayerWeapon(id: number): Observable<Player>{
-    return this.http.put<Player>(this.baseApiUrl + 'api/players/' + id + '/weapon', id);
+  updatePlayerWeapon(id: number, weaponId: number): Observable<Player>{
+    return this.http.put<Player>(this.baseApiUrl + 'api/players/' + id + '/weapon/' + weaponId, weaponId);
   }
 }
