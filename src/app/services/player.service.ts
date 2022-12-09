@@ -12,6 +12,10 @@ export class PlayerService {
   baseApiUrl: string = environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
+  getPlayers(): Observable<Player[]>{
+    return this.http.get<Player[]>(this.baseApiUrl + 'api/players');
+  }
+
   getPlayer(id: number): Observable<Player>{
     return this.http.get<Player>(this.baseApiUrl + 'api/players/' + id);
   }
