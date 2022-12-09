@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Item } from '../models/item';
 import { Player } from '../models/player';
 import { PlayerStat } from '../models/playerstat';
+import { UpdateStatsRequest } from '../models/updatestatsrequest';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class PlayerService {
 
   getPlayerStats(id: number): Observable<PlayerStat[]>{
     return this.http.get<PlayerStat[]>(this.baseApiUrl + 'api/players/' + id + '/stats');
+  }
+
+  updatePlayerStats(id: number, statsRequest: UpdateStatsRequest[]): Observable<UpdateStatsRequest[]>{
+    return this.http.put<UpdateStatsRequest[]>(this.baseApiUrl + 'api/players/' + id + '/stats', statsRequest);
+  }
+
+  updatePlayerWeapon(id: number): Observable<Player>{
+    return this.http.put<Player>(this.baseApiUrl + 'api/players/' + id + '/weapon', id);
   }
 }
