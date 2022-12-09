@@ -38,4 +38,8 @@ export class PlayerService {
   updatePlayerWeapon(id: number, weaponId: number): Observable<Player>{
     return this.http.put<Player>(this.baseApiUrl + 'api/players/' + id + '/weapon/' + weaponId, weaponId);
   }
+
+  updatePlayerLevelCurrency(id: number, level: number, currency: number): Observable<Player>{
+    return this.http.put<Player>(this.baseApiUrl + 'api/players/' + id + '/level/' + level + '/currency/' + currency, id);
+  }
 }
