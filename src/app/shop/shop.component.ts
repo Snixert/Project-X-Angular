@@ -15,13 +15,7 @@ export class ShopComponent implements OnInit {
   constructor(private itemService: ItemService, private playerService: PlayerService){
   }
   items: Item[] = [];
-  playerTest: Player []= [];
-
-      player = {
-        name: 'Cowkilla23',
-        currency: 5200,
-        picture: 'assets/huey.jpg'
-      }
+  player = {} as Player;
 
   ngOnInit(): void {
     this.itemService.getItems()
@@ -30,10 +24,13 @@ export class ShopComponent implements OnInit {
         this.items = items;
       })
     })
+    //ID parameter needs to be changed to the ID of currently
+    //logged on user, and not "1"
     this.playerService.getPlayer(1)
     .subscribe({
-      next:(playerTest =>{
-        console.log(playerTest)
+      next:(player =>{
+        this.player = player;
+        console.log(player)
       })
     })
   }
