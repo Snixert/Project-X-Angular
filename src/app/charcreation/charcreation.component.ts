@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ItemService } from '../services/item.service';
+import { Item } from '../models/item';
+import { Observable } from 'rxjs';
+import { Player } from '../models/player';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-charcreation',
@@ -8,26 +13,23 @@ import { Component, OnInit } from '@angular/core';
 export class CharcreationComponent implements OnInit {
 
   constructor() {}
-  image: string = "";
+  
+  player = {} as Player;
   checkboxes = [{
-    id:1,image:'assets/huey.jpg',isChecked: false
+    id:0,image:'assets/huey.jpg'
   },
   {
-    id:2,image:'assets/huey.jpg',isChecked: false
+    id:1,image:'assets/riley_600x672.jpg'
   },
   {
-    id:3,image:'assets/huey.jpg',isChecked: false
+    id:2,image:'assets/granddad_600x672.jpg'
   }
   ]
 
   isChecked(userInput:number){
     this.checkboxes.forEach((checkbox)=>{
       if(userInput === checkbox.id){
-        checkbox.isChecked = true;
-        this.image = checkbox.image;
-      }
-      else{
-        checkbox.isChecked = false;
+        this.player.image = checkbox.image;
       }
     })
   }
@@ -39,7 +41,7 @@ export class CharcreationComponent implements OnInit {
     //needs to store info into player object
     //then API post call
     const input = <HTMLInputElement>document.getElementById('textbox');
-    console.log(input.value);
-    console.log(this.image);
+    this.player.name = input.value;
+    console.log(this.player);
   }
 }

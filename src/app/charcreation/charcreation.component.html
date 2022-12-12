@@ -5,17 +5,9 @@
         <input type="text" value="" id="textbox"><br>
     </div>
     <p>Select your character icon</p>
-    <div class="card">
-        <img class="imageSize" src="assets/huey.jpg" alt="N/A"><br>
-        <input type="radio" name="checkbox" (click)="isChecked(1)">
-    </div>
-    <div class="card">
-        <img class="imageSize" src="assets/huey.jpg" alt="N/A"><br>
-        <input type="radio" name="checkbox" (click)="isChecked(2)">
-    </div>
-    <div class="card">
-        <img class="imageSize" src="assets/huey.jpg" alt="N/A"><br>
-        <input type="radio" name="checkbox" (click)="isChecked(3)">
+    <div class="card" *ngFor="let element of checkboxes; index as i">
+        <img class="imageSize" src={{element.image}} alt="N/A"><br>
+        <input type="radio" name="checkbox" (click)="isChecked(i)">
     </div>
     <div class="button" (click)="onSubmit()">
         <span>CREATE</span>
