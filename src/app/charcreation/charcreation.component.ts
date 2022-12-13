@@ -4,6 +4,7 @@ import { Item } from '../models/item';
 import { Observable } from 'rxjs';
 import { Player } from '../models/player';
 import { PlayerService } from '../services/player.service';
+import { AddPlayerRequest } from '../models/addplayerrequest';
 
 @Component({
   selector: 'app-charcreation',
@@ -11,10 +12,9 @@ import { PlayerService } from '../services/player.service';
   styleUrls: ['./charcreation.component.css']
 })
 export class CharcreationComponent implements OnInit {
-
-  constructor() {}
+  constructor(private playerService: PlayerService){}
   
-  player = {} as Player;
+  player = {} as AddPlayerRequest;
   checkboxes = [{
     id:0,image:'assets/huey.jpg'
   },
@@ -38,10 +38,12 @@ export class CharcreationComponent implements OnInit {
   }
 
   onSubmit(){
-    //needs to store info into player object
-    //then API post call
     const input = <HTMLInputElement>document.getElementById('textbox');
     this.player.name = input.value;
-    console.log(this.player);
+    //accountId hardcoded while we wait for login project
+    this.player.accountId = 8;
+    this.playerService.addPlayer(this.player).subscribe();
+    //API call to add/update column "PlayerID" in account table
+    //needs to be made
   }
 }
