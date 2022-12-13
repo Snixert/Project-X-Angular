@@ -30,7 +30,6 @@ export class ShopComponent implements OnInit {
     .subscribe({
       next:(player =>{
         this.player = player;
-        console.log(player)
       })
     })
   }
