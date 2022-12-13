@@ -12,7 +12,8 @@ import { AddPlayerRequest } from '../models/addplayerrequest';
   styleUrls: ['./charcreation.component.css']
 })
 export class CharcreationComponent implements OnInit {
-  constructor(private playerService: PlayerService){}
+  constructor(private playerService: PlayerService){
+  }
   
   player = {} as AddPlayerRequest;
   checkboxes = [{
@@ -43,7 +44,5 @@ export class CharcreationComponent implements OnInit {
     //accountId hardcoded while we wait for login project
     this.player.accountId = 8;
     this.playerService.addPlayer(this.player).subscribe();
-    //API call to add/update column "PlayerID" in account table
-    //needs to be made
   }
 }
