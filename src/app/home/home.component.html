@@ -1,7 +1,18 @@
 <div class="title">
     <h1> welcome to PLACEHOLDER</h1>
-    <p>Create a character to get started!</p>
-    <div class="button" routerLink="/hey">
-        <span>CREATE</span>
+    <div *ngIf="account.playerId != null;else noChar">
+        <p>char name</p>
+        <img src="assets/huey.jpg" alt="N/A">
+        <div class="button2">
+            <span>Start Adventuring</span>
+        </div>
     </div>
+    <ng-template #noChar>
+        <div class="title">
+            <p>Create a character to get started!</p>
+            <div class="button" routerLink="/creation">
+                <span>CREATE</span>
+            </div>
+        </div>
+    </ng-template>
 </div>
