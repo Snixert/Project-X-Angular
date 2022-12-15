@@ -3,6 +3,7 @@ import { PlayerStat } from "./playerstat";
 
 export class Player {
     id: number;
+    level: number;
     name: string;
     image: string;
     currency: number;
@@ -17,6 +18,7 @@ export class Player {
     constructor() {
         this.id = 0;
         this.name = '',
+        this.level = 0,
             this.image = '',
             this.currency = 0,
             this.weaponId = 0,

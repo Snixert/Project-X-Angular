@@ -11,12 +11,21 @@ import { Player } from '../models/player';
 export class HomeComponent implements OnInit {
   constructor(private playerService: PlayerService) {
   }
-  
-  //Need API call to check if logged in user has a player
+  player = {} as Player;
+  //Need API call to get account data
   account = {
-    playerId: 2
+    playerId: 1,
+    name: "Sylvain"
   }
 
   ngOnInit(): void {
+    if(this.account.playerId != null){
+      this.playerService.getPlayer(this.account.playerId)
+      .subscribe({
+        next:(player =>{
+          this.player = player;
+        })
+      })
+    }
   }
 }
