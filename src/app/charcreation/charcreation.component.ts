@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Player } from '../models/player';
 import { PlayerService } from '../services/player.service';
 import { AddPlayerRequest } from '../models/addplayerrequest';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-charcreation',
@@ -12,7 +13,7 @@ import { AddPlayerRequest } from '../models/addplayerrequest';
   styleUrls: ['./charcreation.component.css']
 })
 export class CharcreationComponent implements OnInit {
-  constructor(private playerService: PlayerService){
+  constructor(private playerService: PlayerService, private router: Router){
   }
   
   player = {} as AddPlayerRequest;
@@ -44,5 +45,6 @@ export class CharcreationComponent implements OnInit {
     //accountId hardcoded while we wait for login project
     this.player.accountId = 8;
     this.playerService.addPlayer(this.player).subscribe();
+    this.router.navigate(['/']);
   }
 }

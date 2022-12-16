@@ -1,6 +1,6 @@
 <div class="title">
     <h1> Welcome back {{account.name}}</h1>
-    <div *ngIf="account.playerId != null;else noChar">
+    <div *ngIf="account.playerId != 0;else noChar">
         <p>{{player.name}}</p>
         <img class="imageSize"src={{player.image}} alt="N/A">
         <p>Level {{player.level}}</p>
@@ -11,9 +11,10 @@
     <ng-template #noChar>
         <div class="title">
             <p>Create a character to get started!</p>
-            <div class="button" routerLink="/creation">
+            <div class="button" (click)="creation()">
                 <span>CREATE</span>
             </div>
         </div>
     </ng-template>
 </div>
+<!-- routerLink="/creation"  -->

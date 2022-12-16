@@ -8,8 +8,9 @@ import { Player } from '../models/player';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
-  constructor(private playerService: PlayerService) {
+  constructor(private playerService: PlayerService,private router: Router) {
   }
   player = {} as Player;
   //Need API call to get account data
@@ -18,8 +19,12 @@ export class HomeComponent implements OnInit {
     name: "Sylvain"
   }
 
+  creation(){
+    this.router.navigate(['/creation']);
+  }
+
   ngOnInit(): void {
-    if(this.account.playerId != null){
+    if(this.account.playerId != 0){
       this.playerService.getPlayer(this.account.playerId)
       .subscribe({
         next:(player =>{
