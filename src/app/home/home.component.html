@@ -4,17 +4,16 @@
         <p>{{player.name}}</p>
         <img class="imageSize"src={{player.image}} alt="N/A">
         <p>Level {{player.level}}</p>
-        <div class="button2">
+        <div class="button2 scale">
             <span>Start Adventuring</span>
         </div>
     </div>
     <ng-template #noChar>
         <div class="title">
             <p>Create a character to get started!</p>
-            <div class="button" (click)="creation()">
+            <div class="button scale" (click)="creation()">
                 <span>CREATE</span>
             </div>
         </div>
     </ng-template>
 </div>
-<!-- routerLink="/creation"  -->

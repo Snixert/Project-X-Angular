@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-.button:active{
+.scale:active{
     transform:scale(0.98);
 }
 
