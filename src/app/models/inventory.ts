@@ -1,7 +1,7 @@
 import { Item } from "./item";
 
 export interface Inventory {
-    items: [
+    inventory: [
         Item
     ]
 }

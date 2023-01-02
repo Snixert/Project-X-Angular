@@ -39,7 +39,7 @@ export class Player {
                 statsValue: 0
             }],
             this.inventory = [{
-                items: [{
+                inventory: [{
                     id: 0,
                     name: '',
                     type: 0,
