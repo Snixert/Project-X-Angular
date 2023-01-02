@@ -1,3 +1,4 @@
+import { Inventory } from "./inventory";
 import { Item } from "./item";
 import { PlayerStat } from "./playerstat";
 
@@ -12,7 +13,7 @@ export class Player {
         PlayerStat
     ];
     inventory: [
-        Item
+        Inventory
     ];
     constructor() {
         this.id = 0;
@@ -38,15 +39,17 @@ export class Player {
                 statsValue: 0
             }],
             this.inventory = [{
-                id: 0,
-                name: '',
-                type: 0,
-                price: 0,
-                image: '',
-                itemStats: [{
-                    statsId: 0,
-                    statName: '',
-                    statsValue: 0
+                inventory: [{
+                    id: 0,
+                    name: '',
+                    type: 0,
+                    price: 0,
+                    image: '',
+                    itemStats: [{
+                        statsId: 0,
+                        statName: '',
+                        statsValue: 0
+                    }]
                 }]
             }]
     }
