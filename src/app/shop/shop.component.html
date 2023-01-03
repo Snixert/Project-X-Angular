@@ -17,8 +17,8 @@
         <img class="cardcash" src="assets/coins.png" alt="N/A">
         <span class="price">{{item.price}}</span>
         <p class="itemName">{{item.name}}</p>
-        <div class="buybutton" id="buybutton" *ngIf="player.currency >= item.price;else noBuy">
-            <p class="buttonText" (click)="buyItem(item.price)">Buy</p>
+        <div class="buybutton" id="buybutton" *ngIf="player.currency >= item.price && noItem();else noBuy">
+            <p class="buttonText" (click)="buyItem(item.price,item.id)">Buy</p>
         </div>
         <ng-template #noBuy>
             <div class="cantbuybutton">

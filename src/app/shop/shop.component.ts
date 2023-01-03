@@ -4,6 +4,8 @@ import { Item } from '../models/item';
 import { Observable } from 'rxjs';
 import { Player } from '../models/player';
 import { PlayerService } from '../services/player.service';
+import { InventoryService } from '../services/inventory.service';
+import { Inventory } from '../models/inventory';
 
 @Component({
   selector: 'app-shop',
@@ -12,9 +14,10 @@ import { PlayerService } from '../services/player.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ShopComponent implements OnInit {
-  constructor(private itemService: ItemService, private playerService: PlayerService){
+  constructor(private inventoryService: InventoryService,private itemService: ItemService, private playerService: PlayerService){
   }
   items: Item[] = [];
+  inventory = {} as Inventory;
   player = {} as Player;
 
   ngOnInit(): void {
@@ -32,13 +35,29 @@ export class ShopComponent implements OnInit {
         this.player = player;
       })
     })
+    this.inventoryService.getPlayerInventory(1)
+    .subscribe({
+      next:(inventory =>{
+        this.inventory = inventory;
+        console.log(inventory.inventory[0]);
+      })
+    })
   }
 
   ngAfterViewInit(){
   }
 
-  buyItem(itemPrice:number){
+  noItem(){
+    // this.inventory.inventory.forEach(function(item){
+      
+    // })
+    
+    return false;
+  }
+
+  buyItem(itemPrice:number,itemId:number){
     this.player.currency -= itemPrice;
-    // missing api call to update player currency
+    // api call to update player currency and player inventory
+    this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe();
   }
 }
