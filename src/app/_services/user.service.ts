@@ -18,22 +18,13 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // Public access
-  getPublicContent() : Observable<any> {
+  getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
 
   // User access
   getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text'});
-  }
-  
-  // Moderator access
-  getModeratorBoard() : Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+    return this.http.get(API_URL + 'user', { responseType: 'text' });
   }
 
-  // Admin access
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text'});
-  }
 }

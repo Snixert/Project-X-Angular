@@ -1,6 +1,6 @@
 // This is part of the implementation of storing a JSON Web Token (JWT) in a HttpOnly Cookie
 
-// intercepts and handles an HttpRequest or HttpResponse
+// intercepts and handles a HttpRequest or HttpResponse
 import { Injectable } from "@angular/core";
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -19,5 +19,5 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 }
 
 export const HttpInterceptorProviders = [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
 ];
