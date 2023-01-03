@@ -1,0 +1,25 @@
+.title{
+    text-align:center;
+    user-select:none;
+    height:100%;
+    background-color: magenta;
+}
+
+.bigdiv{
+    margin-left:43%;
+}
+
+.div1{
+    float:left;
+    background-color:green;
+    width:7%;
+    margin: 7px;
+    margin-left: 42%;
+}
+
+.div3{
+    background-color:red;
+    width:7%;
+    float:left;
+    margin: 7px;
+}

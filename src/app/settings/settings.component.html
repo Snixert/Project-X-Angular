@@ -1,0 +1,15 @@
+<div class="title">
+    <h1>Settings</h1>
+    <label for = "userInput">Username</label><br>
+    <input type="text" id="userInput" value={{user.name}} readonly><br>
+    <div class="div1" id="textDiv" (click)="onChange()">
+        <span>Edit</span>
+    </div>
+    <div class="div3">
+        <span>Cancel</span>
+    </div>
+    <br><br>
+    <label for="passwordInput">Password</label><br>
+    <input type="password" id="passwordInput" value={{user.password}} readonly><br>
+    <input type="button" value="Change">
+</div>
