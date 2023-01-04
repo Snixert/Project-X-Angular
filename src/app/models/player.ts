@@ -9,12 +9,8 @@ export class Player {
     currency: number;
     weaponId: number;
     weapon: Item;
-    playerStats: [
-        PlayerStat
-    ];
-    inventory: [
-        Inventory
-    ];
+    playerStats: PlayerStat[];
+    inventory: Inventory;
     constructor() {
         this.id = 0;
         this.name = '',
@@ -38,7 +34,7 @@ export class Player {
                 statName: '',
                 statsValue: 0
             }],
-            this.inventory = [{
+            this.inventory = {
                 inventory: [{
                     id: 0,
                     name: '',
@@ -51,6 +47,6 @@ export class Player {
                         statsValue: 0
                     }]
                 }]
-            }]
+            }
     }
 }

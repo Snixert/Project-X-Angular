@@ -6,7 +6,5 @@ export interface Item{
     type: number,
     price: number,
     image: string,
-    itemStats: [
-        ItemStat
-    ]
+    itemStats: ItemStat[]
 }
