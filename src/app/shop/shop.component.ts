@@ -18,9 +18,9 @@ export class ShopComponent implements OnInit {
   }
   items: Item[] = [];
   inventory = {} as Inventory;
-  inventory1: Inventory ={
-    inventory:
-  }
+  // inventory1: Inventory ={
+  //   inventory:
+  // }
   player = {} as Player;
 
   ngOnInit(): void {
@@ -42,20 +42,26 @@ export class ShopComponent implements OnInit {
     .subscribe({
       next:(inventory =>{
         this.inventory = inventory;
-        console.log(this.inventory.inventory[1]);
+        // console.log(this.inventory.inventory);
+        // console.log(this.player.playerStats[1]);
+        // console.log(this.items);
       })
     })
+
+    // console.log(this.inventory.inventory);
   }
 
   ngAfterViewInit(){
   }
 
-  noItem(){
-    // this.inventory.inventory.forEach(function(item){
-      
-    // })
-    
-    return false;
+  noItem(item2:number){
+    console.log(this.inventory.inventory);
+      for(let i = 0; i < this.inventory.inventory.length;i++){
+        if(item2 === this.inventory.inventory[i].itemId){
+          return false;
+        }
+      }
+    return true;
   }
 
   buyItem(itemPrice:number,itemId:number){

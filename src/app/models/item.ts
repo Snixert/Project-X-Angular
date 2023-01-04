@@ -1,7 +1,7 @@
 import { ItemStat } from "./itemstat";
 
 export interface Item{
-    id: number,
+    itemId: number,
     name: string,
     type: number,
     price: number,
