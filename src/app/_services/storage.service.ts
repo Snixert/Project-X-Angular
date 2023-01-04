@@ -29,7 +29,6 @@ export class StorageService {
     if (user) {
       return JSON.parse(user);  // JSON.parse converts a JSON string into a JS value
     }
-
     return {};
   }
 
@@ -39,7 +38,6 @@ export class StorageService {
     if (user) {
       return true;
     }
-    
     return false;
   }
 }
