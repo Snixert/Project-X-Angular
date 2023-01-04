@@ -50,7 +50,6 @@ export class AppComponent {
     // check if user is logged in, if true then get users roles and set value for showAdminBoard and showModeratorBoard flag. This controls how the template navbar displays items
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
-      this.roles = user.roles;
       this.username = user.username;
     }
   }
