@@ -5,6 +5,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 const API_URL = 'http://localhost:8080/api/test';
 
@@ -12,14 +13,15 @@ const API_URL = 'http://localhost:8080/api/test';
   providedIn: 'root'
 })
 
-// Service to access resources based. Autherization is already provided in the get() through HttpClient
+// Service to access resources. Autherization is already provided in the get() through HttpClient
 export class UserService {
 
+  baseApiUrl: string = environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
   // Public access
   getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+    return this.http.get(this.baseApiUrl + 'all', { responseType: 'text' });
   }
 
   // User access
