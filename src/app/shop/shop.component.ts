@@ -18,6 +18,9 @@ export class ShopComponent implements OnInit {
   }
   items: Item[] = [];
   inventory = {} as Inventory;
+  inventory1: Inventory ={
+    inventory:
+  }
   player = {} as Player;
 
   ngOnInit(): void {
@@ -39,7 +42,7 @@ export class ShopComponent implements OnInit {
     .subscribe({
       next:(inventory =>{
         this.inventory = inventory;
-        console.log(inventory.inventory[0]);
+        console.log(this.inventory.inventory[1]);
       })
     })
   }
