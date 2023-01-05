@@ -44,10 +44,16 @@ export class ShopComponent implements OnInit {
   }
 
   ngAfterViewInit(){
+    
+    const butt = document.getElementsByClassName('buttonText');
+    console.log(butt);
+    // for(let i = 0; i < butt.length;i++){
+    //   butt[i].addEventListener('click', buyItem(),false)
+    // }
   }
 
   noItem(item2:number){
-    console.log(this.inventory.inventory);
+    // console.log(this.inventory.inventory);
       for(let i = 0; i < this.inventory.inventory.length;i++){
         if(item2 === this.inventory.inventory[i].itemId){
           return false;
@@ -56,9 +62,12 @@ export class ShopComponent implements OnInit {
     return true;
   }
 
-  buyItem(itemPrice:number,itemId:number){
+  buyItem(itemPrice:number,itemId:number,itemName:string){
+    const div = document.getElementById(itemName);
     this.player.currency -= itemPrice;
     // api call to update player currency and player inventory
-    this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe();
+    this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe;
+    div?.classList.remove('buybutton');
+    div?.classList.add('cantbuybutton');
   }
 }
