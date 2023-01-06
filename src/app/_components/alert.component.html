@@ -1,0 +1,5 @@
+<!--Contains html for displaying alert messages. It renders a notification for each item in the alerts array using the *ngFor directive-->
+<div *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+    <span [innerHTML]="alert.message"></span>
+    <button class="btn-close" (click)="removeAlert(alert)"></button>
+</div>
