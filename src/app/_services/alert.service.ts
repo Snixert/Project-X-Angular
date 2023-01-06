@@ -1,3 +1,11 @@
+/* The Alert service acts as the bridge between any component and the alert
+component that actually displays the alert messages. It contains methods for 
+sending, clearing and subscribing to alert messages.
+
+The service uses the RxJS Observable and Subject classes to enable communication
+with other components.
+*/
+
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
