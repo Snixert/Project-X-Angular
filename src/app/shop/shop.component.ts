@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit {
   items: Item[] = [];
   inventory = {} as Inventory;
   player = {} as Player;
+  alreadyBought: boolean[] = [];
 
   ngOnInit(): void {
     this.itemService.getItems()
@@ -42,32 +43,30 @@ export class ShopComponent implements OnInit {
       })
     })
   }
-
-  ngAfterViewInit(){
-    
-    const butt = document.getElementsByClassName('buttonText');
-    console.log(butt);
-    // for(let i = 0; i < butt.length;i++){
-    //   butt[i].addEventListener('click', buyItem(),false)
-    // }
-  }
-
+  
   noItem(item2:number){
-    // console.log(this.inventory.inventory);
       for(let i = 0; i < this.inventory.inventory.length;i++){
         if(item2 === this.inventory.inventory[i].itemId){
+          if(this.alreadyBought.length < this.items.length){
+            this.alreadyBought.push(true);
+          }
           return false;
         }
+      }
+      if(this.alreadyBought.length < this.items.length){
+        this.alreadyBought.push(false);
       }
     return true;
   }
 
   buyItem(itemPrice:number,itemId:number,itemName:string){
     const div = document.getElementById(itemName);
-    this.player.currency -= itemPrice;
-    // api call to update player currency and player inventory
-    this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe;
-    div?.classList.remove('buybutton');
-    div?.classList.add('cantbuybutton');
+    if(this.alreadyBought[itemId-1] === false){
+      this.alreadyBought[itemId-1] = true;
+      this.player.currency -= itemPrice;
+      this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe();
+      div?.classList.remove('buybutton');
+      div?.classList.add('cantbuybutton');
+    }
   }
 }
