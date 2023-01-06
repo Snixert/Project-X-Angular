@@ -1,1 +1,34 @@
-<p>login works!</p>
+<!--The login component template contains a login form with username and password fields.
+It displays validation messages for invalid fields when the submit button is clicked.
+The form submit event is bound to the 'onSubmit()' method of the component. It uses 
+reactive form validation to validate the input fields.
+-->
+
+<div class="card">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback"> <!--https://stackoverflow.com/questions/70106472/property-fname-comes-from-an-index-signature-so-it-must-be-accessed-with-fn-->
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Login
+                </button>
+                <a routerLink="../register" class="btn btn-link">Register</a>
+            </div>
+        </form>
+    </div>
+</div>
