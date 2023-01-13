@@ -2,10 +2,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
   {path:'shop',component:ShopComponent}
   ];
 
@@ -14,4 +12,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ShopComponent,HomeComponent]
+export const routingComponents = [ShopComponent]
