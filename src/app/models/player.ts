@@ -33,7 +33,8 @@ export class Player {
                 statsId: 0,
                 statName: '',
                 statsValue: 0
-            }]
+            //merge conflict here ",", but makes no sense
+            }],
             this.inventory = {
                 inventory: [{
                     itemId: 0,
