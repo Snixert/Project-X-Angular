@@ -1,0 +1,36 @@
+<!-- Navbar component missing -->
+<div class="playerProfile">
+    <span>{{player.name}}</span>
+    <img class="profilePic" src={{player.image}} alt="N/A">
+    <!-- All profile pictures has to be of dimension 600x672, and all item-->
+    <!-- pictures has to be of dimension 512x512, otherwise it'll -->
+    <!-- break the layout -->
+</div>
+<div class="cashloc">
+    <img class="cash" src="assets/coins.png" alt="N/A">
+</div>
+<div class="cashamount">
+    <span>{{player.currency}}</span>
+</div>
+<!-- && noItem() -->
+<div class="itemContainer" id="itemContainer">
+    <div class="card" *ngFor="let item of items">
+        <img class="cardcash" src="assets/coins.png" alt="N/A">
+        <span class="price">{{item.price}}</span>
+        <p class="itemName">{{item.name}}</p>
+        <div class="buybutton" id={{item.name}} *ngIf="player.currency >= item.price && noItem(item.itemId);else noBuy">
+            <p class="buttonText" (click)="buyItem(item.price,item.itemId,item.name)">Buy</p>
+            <!-- <p class="buttonText">Buy</p> -->
+        </div>
+        <ng-template #noBuy>
+            <div class="cantbuybutton">
+                <p class="buttonText">Buy</p>
+            </div>
+        </ng-template>
+        <div>
+            <img class="item" src="{{item.image}}" alt="N/A">
+        </div>
+    </div>
+    <!-- All item pictures has to be of dimension 512x512, otherwise it'll -->
+    <!-- break the layout -->
+</div>

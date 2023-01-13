@@ -18,7 +18,7 @@ export class Player {
             this.currency = 0,
             this.weaponId = 0,
             this.weapon = {
-                id: 0,
+                itemId: 0,
                 name: '',
                 type: 0,
                 price: 0,
@@ -33,10 +33,10 @@ export class Player {
                 statsId: 0,
                 statName: '',
                 statsValue: 0
-            }],
+            }]
             this.inventory = {
                 inventory: [{
-                    id: 0,
+                    itemId: 0,
                     name: '',
                     type: 0,
                     price: 0,
