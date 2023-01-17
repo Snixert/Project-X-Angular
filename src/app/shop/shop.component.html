@@ -1,4 +1,5 @@
 <!-- Navbar component missing -->
+<div *ngIf="this.items.at(-1) !== undefined ">
 <div class="playerProfile">
     <span>{{player.name}}</span>
     <img class="profilePic" src={{player.image}} alt="N/A">
@@ -33,4 +34,5 @@
     </div>
     <!-- All item pictures has to be of dimension 512x512, otherwise it'll -->
     <!-- break the layout -->
+</div>
 </div>

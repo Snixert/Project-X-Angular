@@ -20,6 +20,7 @@ export class ShopComponent implements OnInit {
   inventory = {} as Inventory;
   player = {} as Player;
   alreadyBought: boolean[] = [];
+  value:boolean = false;
 
   ngOnInit(): void {
     this.itemService.getItems()
@@ -44,7 +45,11 @@ export class ShopComponent implements OnInit {
     })
   }
   
+  ngAfterViewChecked(){
+  }
+
   noItem(item2:number){
+    if(this.inventory.inventory.length === 0) return;
       for(let i = 0; i < this.inventory.inventory.length;i++){
         if(item2 === this.inventory.inventory[i].itemId){
           if(this.alreadyBought.length < this.items.length){
