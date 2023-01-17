@@ -16,58 +16,34 @@ import { Inventory } from '../models/inventory';
 export class ShopComponent implements OnInit {
   constructor(private inventoryService: InventoryService,private itemService: ItemService, private playerService: PlayerService){
   }
-  items: Item[] = [];
+  items?: Observable<Item[]>;
   inventory = {} as Inventory;
   player = {} as Player;
-  alreadyBought: boolean[] = [];
-  value:boolean = false;
 
-  ngOnInit(): void {
-    this.itemService.getItems()
-    .subscribe({
-      next:(items =>{
-        this.items = items;
-      })
-    })
+  ngOnInit(): void 
+  {
     //ID parameter needs to be changed to the ID of currently
     //logged on user, and not "1"
-    this.playerService.getPlayer(1)
-    .subscribe({
-      next:(player =>{
-        this.player = player;
-      })
-    })
-    this.inventoryService.getPlayerInventory(1)
-    .subscribe({
-      next:(inventory =>{
-        this.inventory = inventory;
-      })
-    })
-  }
-  
-  ngAfterViewChecked(){
+    this.playerService.getPlayer(1).subscribe((player : Player) => (this.player = player));
+    
+    this.inventoryService.getPlayerInventory(1).subscribe((inventory : Inventory ) => (this.inventory = inventory));
+
+    this.items = this.itemService.getItems();
   }
 
-  noItem(item2:number){
-    if(this.inventory.inventory.length === 0) return;
-      for(let i = 0; i < this.inventory.inventory.length;i++){
-        if(item2 === this.inventory.inventory[i].itemId){
-          if(this.alreadyBought.length < this.items.length){
-            this.alreadyBought.push(true);
-          }
-          return false;
-        }
-      }
-      if(this.alreadyBought.length < this.items.length){
-        this.alreadyBought.push(false);
-      }
-    return true;
+  canBuyItem(itemId:number, itemPrice:number) : Boolean
+  {
+    if(this.inventory.inventory?.filter((i : Item) => (i.itemId === itemId)).length <= 0 && this.player.currency >= itemPrice)
+    {
+      return true;
+    }
+    return false;
   }
 
   buyItem(itemPrice:number,itemId:number,itemName:string){
-    const div = document.getElementById(itemName);
-    if(this.alreadyBought[itemId-1] === false){
-      this.alreadyBought[itemId-1] = true;
+    if(this.canBuyItem(itemId,itemPrice))
+    {
+      const div = document.getElementById(itemName);
       this.player.currency -= itemPrice;
       this.inventoryService.addPlayerInventoryItem(1,itemId).subscribe();
       div?.classList.remove('buybutton');
